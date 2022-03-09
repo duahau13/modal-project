@@ -1,5 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
+  <p>Hello {{ currentRecord.Name }}</p>
   <div v-if="showModal">
     <Modal theme="" @close="toggleModal">
       <h1>Sign up for entrance</h1>
@@ -30,6 +31,7 @@ export default {
       title: "My First Vue App",
       showModal: false,
       showModalTwo: false,
+      currentRecord: {},
     };
   },
   components: {
@@ -42,6 +44,10 @@ export default {
     toggleModalTwo() {
       this.showModalTwo = !this.showModalTwo;
     },
+  },
+  mounted() {
+    grist.ready();
+    grist.onRecord((record) => (this.currentRecord = record));
   },
 };
 </script>
