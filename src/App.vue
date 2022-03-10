@@ -1,6 +1,8 @@
 <template>
-  <h1>{{ title }}</h1>
-  <p>Hello {{ currentRecord.Name }}</p>
+  <div v-if="currentRecord">
+    <h1>{{ title }}</h1>
+    <p>Hello {{ currentRecord.Name }}</p>
+  </div>
   <div v-if="showModal">
     <Modal theme="" @close="toggleModal">
       <h1>Sign up for entrance</h1>
@@ -31,7 +33,7 @@ export default {
       title: "My First Vue App",
       showModal: false,
       showModalTwo: false,
-      currentRecord: {},
+      currentRecord: null,
     };
   },
   components: {
