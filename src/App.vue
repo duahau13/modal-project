@@ -3,6 +3,7 @@
     <h1>{{ title }}</h1>
     <p>Hello {{ currentRecord.Name }}</p>
   </div>
+  <div v-else><p>Loading</p></div>
   <div v-if="showModal">
     <Modal theme="" @close="toggleModal">
       <h1>Sign up for entrance</h1>
